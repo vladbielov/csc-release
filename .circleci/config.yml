@@ -5,9 +5,9 @@ jobs:
     steps:
       - checkout
       - run: 
-          sudo apt-get update
-          sudo apt-get install git 
+          sudo apt update
+          sudo apt install git 
           sudo apt update
           sudo apt install libz-dev libssl-dev libcurl4-gnutls-dev libexpat1-dev gettext cmake gcc          
-      - run: curl -o git.tar.gz https://mirrors.edge.kernel.org/pub/software/scm/git/git-2.26.2.tar.gz
+
 

@@ -1,11 +1,11 @@
 jobs:
   build:
     docker:
-      - image: ubuntu:latest
+      - image: cimg/base:2021.05
     steps:
       - checkout
       - run: 
-          sudo apt update
-          sudo apt upgrade
-      - run: sudo apt install git
+          sudo apt-get update
+          sudo apt-get upgrade
+      - run: sudo apt-get install git
           #sudo apt install libz-dev libssl-dev libcurl4-gnutls-dev libexpat1-dev gettext cmake gcc   

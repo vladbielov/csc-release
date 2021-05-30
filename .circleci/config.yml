@@ -4,7 +4,6 @@ jobs:
       - image: cimg/base:2021.05
     steps:
       - checkout
-      - run: 
-          sudo add-apt-repository ppa:git-core/ppa
-          sudo apt install git 
+      - run: sudo add-apt-repository ppa:git-core/ppa
+      - run: sudo apt-get install git 
 

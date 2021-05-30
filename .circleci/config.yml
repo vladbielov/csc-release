@@ -18,5 +18,5 @@ jobs:
       - run: 
           git clone --depth 1 --filter=blob:none --no-checkout  https://github.com/vladbielov/csc-release ;
           cd csc-release
-      - run: git checkout master -- changelog
+      - run: git checkout origin master -- changelog
       - run: ls -l

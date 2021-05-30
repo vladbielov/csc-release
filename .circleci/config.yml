@@ -6,7 +6,8 @@ jobs:
       - checkout
       - run: 
           sudo apt-get update
+          sudo apt install libz-dev libssl-dev libcurl4-gnutls-dev libexpat1-dev gettext cmake gcc   
           #sudo apt-get install git -y
-          #sudo apt install libz-dev libssl-dev libcurl4-gnutls-dev libexpat1-dev gettext cmake gcc          
+                 
 
 

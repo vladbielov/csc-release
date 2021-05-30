@@ -13,7 +13,7 @@ jobs:
           echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/githubcli-archive-keyring.gpg] https://cli.github.com/packages stable main" | sudo tee /etc/apt/sources.list.d/github-cli.list > /dev/null
           sudo apt update
           sudo apt install gh
-      - run: 
-          git clone --depth 1 --filter=blob:none --no-checkout  https://github.com/vladbielov/csc-release ;
+      - run: git clone --depth 1 --filter=blob:none --no-checkout  https://github.com/vladbielov/csc-release ;
+      - run:
           cd csc-release
           git checkout master -- changelog

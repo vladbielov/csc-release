@@ -15,4 +15,4 @@ jobs:
           sudo apt install gh
       - run: git clone --depth 1 --filter=blob:none --no-checkout  https://github.com/vladbielov/csc-release ;
       - run: cd csc-release
-      - run: git checkout master -- changelo
+      - run: git checkout master -- changelog

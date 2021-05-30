@@ -5,5 +5,7 @@ jobs:
     steps:
       - checkout
       - run: sudo add-apt-repository ppa:git-core/ppa
-      - run: sudo apt-get install git 
+      - run: 
+          sudo apt-get install git 
+          git --version
 

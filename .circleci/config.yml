@@ -2,21 +2,10 @@ version: 2.1
 jobs:
   build:
     docker:
-      - image: cimg/base:2021.05
+      - image: centos:7
     steps:
       - checkout
       - run: 
-          sudo apt-get install git
-          git --version
-      - run: curl -fsSL https://cli.github.com/packages/githubcli-archive-keyring.gpg | sudo gpg --dearmor -o /usr/share/keyrings/githubcli-archive-keyring.gpg
-      - run: 
-          echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/githubcli-archive-keyring.gpg] https://cli.github.com/packages stable main" | sudo tee /etc/apt/sources.list.d/github-cli.list > /dev/null
-          sudo apt update
-          sudo apt install gh
-      - run: ls -l
-      - run: cat README.md
-      - run: 
-          git clone --depth 1 --filter=blob:none --no-checkout  https://github.com/vladbielov/csc-release ;
-          cd csc-release
-      - run: git checkout master -- changelog
-      - run: ls -l
+          sudo yum install epel-release -y
+          sudo yum install dnf -y
+          sudo dnf install 'dnf-command(config-manager)' -y

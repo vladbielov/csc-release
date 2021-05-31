@@ -37,4 +37,4 @@ jobs:
       - run: 
           name: Clone CHANGELOG file
           command: |
-            - run: gh release -R vladbielov/csc-release create v1.0.1 changelog/CHANGELOG.md --title "New Title" --notes "New Note"  
+            gh release -R vladbielov/csc-release create v1.0.1 changelog/CHANGELOG.md --title "New Title" --notes "New Note"  

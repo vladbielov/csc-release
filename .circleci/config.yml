@@ -15,7 +15,7 @@ jobs:
       - run:
           yum install epel-release -y
           yum -y install https://packages.endpoint.com/rhel/7/os/x86_64/endpoint-repo-1.7-1.x86_64.rpm -y
-          yum install git -y
+      - run: yum install git -y
       - run: yum install dnf -y
       - run: dnf install 'dnf-command(config-manager)' -y
       - run: dnf config-manager --add-repo https://cli.github.com/packages/rpm/gh-cli.repo

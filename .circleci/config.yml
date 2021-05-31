@@ -10,8 +10,9 @@ jobs:
       - run:
           yum install epel-release -y
           yum install dnf -y
-      - run: rpm -U https://centos7.iuscommunity.org/ius-release.rpm
-      - run: yum install git2u
+      - run: 
+          yum -y install https://packages.endpoint.com/rhel/7/os/x86_64/endpoint-repo-1.7-1.x86_64.rpm
+          yum install git -y  
       - run: dnf install 'dnf-command(config-manager)' -y
       - run: dnf config-manager --add-repo https://cli.github.com/packages/rpm/gh-cli.repo
       - run: dnf install gh -y

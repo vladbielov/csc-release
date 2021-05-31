@@ -17,3 +17,4 @@ jobs:
       - run: git clone --depth 1 --filter=blob:none --sparse https://github.com/vladbielov/csc-release ;
       - run: cd csc-release
       - run: git sparse-checkout set changelog
+      - run: ls -l

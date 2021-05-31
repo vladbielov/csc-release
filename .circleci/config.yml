@@ -5,6 +5,7 @@ jobs:
       - image: centos:7
     steps:
       - checkout
-      - run: yum install epel-release -y
-      #- run: sudo yum install dnf -y
-      #- run: sudo dnf install 'dnf-command(config-manager)' -y
+      - run:
+          yum install epel-release -y
+          yum install dnf -y
+      - run: dnf install 'dnf-command(config-manager)' -y

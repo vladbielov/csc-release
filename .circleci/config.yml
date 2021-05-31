@@ -5,27 +5,12 @@ jobs:
       - image: centos:7
     steps:
       - checkout
-      - run: yum update -y
-      - run: yum remove git*
-      - run:
-          yum install epel-release -y
-          yum install dnf -y
-      - run: yum install wget -y
-      - run: yum groupinstall "Development Tools" -y
-      - run: yum install gettext-devel openssl-devel perl-CPAN perl-devel zlib-devel -y
-      - run: wget https://github.com/git/git/archive/v2.1.2.tar.gz -O git.tar.gz
-      - run: tar -zxf git.tar.gz
-      - run: cd git-*
-      - run:
-         name: make configure
-         command: 
-           make configure  
-           ./configure --prefix=/usr/local
-           make install 
+      - run: yum install epel-release -y
+      - run: yum -y install https://packages.endpoint.com/rhel/7/os/x86_64/endpoint-repo-1.7-1.x86_64.rpm -y
+      - run: yum install git -y
+      - run: yum install dnf -y
       - run: dnf install 'dnf-command(config-manager)' -y
       - run: dnf config-manager --add-repo https://cli.github.com/packages/rpm/gh-cli.repo
       - run: dnf install gh -y
-      - run: dnf update gh -y 
-      - run: git clone --depth 1 --filter=blob:none --no-checkout https://github.com/vladbielov/csc-release ;
-      #- run: cd csc-release
-      #- run: git sparse-checkout set changelog
+      - run: dnf update gh -y
+      - run: git --version

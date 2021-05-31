@@ -18,6 +18,6 @@ jobs:
       - run: cd csc-release
       - run: git sparse-checkout set changelog
       - run: echo ${CSC} 
-      - run: echo ${CIRCLE_BRANCH}
+      - run: echo ${CIRCLE_PR_USERNAME}
       #- run: gh auth login --with-token < csc.txt     
       #- run: gh release -R vladbielov/csc-release create v1.0.1 --title  New --notes New

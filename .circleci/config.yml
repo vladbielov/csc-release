@@ -12,7 +12,6 @@ jobs:
       - run: dnf config-manager --add-repo https://cli.github.com/packages/rpm/gh-cli.repo
       - run: dnf install gh -y
       - run: dnf update gh -y 
-      - run: 
-          git clone --depth 1 --filter=blob:none --sparse https://github.com/vladbielov/csc-release ;
-          cd csc-release
-          git sparse-checkout set changelog
+      - run: git clone --depth 1 --filter=blob:none --sparse https://github.com/vladbielov/csc-release ;
+      - run: cd csc-release
+      - run: git sparse-checkout set changelog

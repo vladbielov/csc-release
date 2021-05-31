@@ -6,6 +6,9 @@ jobs:
     steps:
       - checkout
       - run: yum update -y
+      - run: 
+          yum -y install https://packages.endpoint.com/rhel/7/os/x86_64/endpoint-repo-1.7-1.x86_64.rpm
+          yum install git -y
       - run:
           yum install epel-release -y
           yum install dnf -y

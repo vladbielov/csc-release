@@ -21,4 +21,5 @@ jobs:
       - run: ls -la changelog/
       - run: ls -la csc-release/
       - run: cat csc-release/README.md
+      - run: gh release -r vladbielov/csc-release create v1.0.1 --title  New --notes New
 

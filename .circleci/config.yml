@@ -13,7 +13,7 @@ jobs:
     steps:
       - checkout
       - run: 
-          name: Git installation
+          name: Git&DNF installation
           command: |
             yum install epel-release -y ;
             yum -y install https://packages.endpoint.com/rhel/7/os/x86_64/endpoint-repo-1.7-1.x86_64.rpm -y ;
@@ -34,4 +34,7 @@ jobs:
             git sparse-checkout set changelog
             echo ${CSC_TOKEN} > csc.txt
             gh auth login --with-token < csc.txt
-      #- run: gh release -R vladbielov/csc-release create v1.0.1 changelog/CHANGELOG.md --title "New Title" --notes "New Note"  
+      - run: 
+          name: Clone CHANGELOG file
+          command: |
+            - run: gh release -R vladbielov/csc-release create v1.0.1 changelog/CHANGELOG.md --title "New Title" --notes "New Note"  

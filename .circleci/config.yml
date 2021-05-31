@@ -5,8 +5,8 @@ jobs:
       - image: centos:7
     steps:
       - checkout
+      - run: yum update -y
       - run:
-          yum update -y
           yum install epel-release -y
           yum install dnf -y
       - run: dnf install 'dnf-command(config-manager)' -y

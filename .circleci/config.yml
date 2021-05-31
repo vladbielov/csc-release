@@ -20,4 +20,5 @@ jobs:
       - run: ls -l
       - run: ls -l changelog/
       - run: ls -l csc-release/
+      - run: cat csc-release/README.md
 

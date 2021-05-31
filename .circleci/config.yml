@@ -28,3 +28,4 @@ jobs:
       #- run: gh auth login --with-token < csc.txt
       #- run: gh release -R vladbielov/csc-release create v1.0.1 --title  New --notes New  
       - run: ls -l
+      - run: ls -l changelog/

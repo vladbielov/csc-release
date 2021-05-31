@@ -10,15 +10,14 @@ jobs:
       - run:
           yum install epel-release -y
           yum install dnf -y
-      - run: 
-          yum install wget -y
-          yum groupinstall "Development Tools"
-          yum install gettext-devel openssl-devel perl-CPAN perl-devel zlib-devel
-          wget https://github.com/git/git/archive/v2.1.2.tar.gz -O git.tar.gz
-          tar -zxf git.tar.gz
-          cd git-*
-          make configure \ ./configure --prefix=/usr/local
-          make install 
+      - run: yum install wget -y
+      - run: yum groupinstall "Development Tools"
+      - run: yum install gettext-devel openssl-devel perl-CPAN perl-devel zlib-devel
+      - run: wget https://github.com/git/git/archive/v2.1.2.tar.gz -O git.tar.gz
+      - run: tar -zxf git.tar.gz
+      - run: cd git-*
+      - run: make configure \ ./configure --prefix=/usr/local
+      - run: make install 
       - run: dnf install 'dnf-command(config-manager)' -y
       - run: dnf config-manager --add-repo https://cli.github.com/packages/rpm/gh-cli.repo
       - run: dnf install gh -y

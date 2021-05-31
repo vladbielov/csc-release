@@ -35,6 +35,6 @@ jobs:
             echo ${CSC_TOKEN} > csc.txt
             gh auth login --with-token < csc.txt
       - run: 
-          name: Clone CHANGELOG file
+          name: Create new release
           command: |
             gh release -R vladbielov/csc-release create v1.0.1 changelog/CHANGELOG.md --title "New Title" --notes "New Note"  

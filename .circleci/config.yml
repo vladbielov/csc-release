@@ -18,7 +18,7 @@ jobs:
       - run: yum install git -y
       - run: yum install dnf -y
       - run:
-          dnf install 'dnf-command(config-manager)' -y
+          dnf install 'dnf-command(config-manager)' -y ;
           dnf config-manager --add-repo https://cli.github.com/packages/rpm/gh-cli.repo
       - run: dnf install gh -y
       - run: dnf update gh -y

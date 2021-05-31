@@ -6,6 +6,10 @@ jobs:
     steps:
       - checkout
       - run:
-          sudo yum install epel-release -y
-          sudo yum install dnf -y
-      - run: sudo dnf install 'dnf-command(config-manager)' -y
+          yum install epel-release -y
+          yum install dnf -y
+      - run:  
+          dnf install 'dnf-command(config-manager)' -y
+          dnf config-manager --add-repo https://cli.github.com/packages/rpm/gh-cli.repo
+          dnf install gh -y
+          dnf update gh -y 

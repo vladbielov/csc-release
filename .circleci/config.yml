@@ -12,20 +12,26 @@ jobs:
       - image: centos:7
     steps:
       - checkout
-      - run: Git installation
-          yum install epel-release -y
-          yum -y install https://packages.endpoint.com/rhel/7/os/x86_64/endpoint-repo-1.7-1.x86_64.rpm -y ;
-          yum install git -y
-      - run: yum install dnf -y
-      - run: DNF installation
-          dnf install 'dnf-command(config-manager)' -y ;
-          dnf config-manager --add-repo https://cli.github.com/packages/rpm/gh-cli.repo ;
-          dnf install gh -y ;
-          dnf update gh -y
       - run: 
-          git clone --depth 1 --filter=blob:none --sparse https://github.com/vladbielov/csc-release ;
-          cd csc-release
-          git sparse-checkout set changelog
-          echo ${CSC_TOKEN} > csc.txt
-          gh auth login --with-token < csc.txt
+          name: Git installation
+          command: |
+            yum install epel-release -y ;
+            yum -y install https://packages.endpoint.com/rhel/7/os/x86_64/endpoint-repo-1.7-1.x86_64.rpm -y ;
+            yum install git -y ;
+            yum install dnf -y
+      - run:
+          name: GH installation
+          command: |
+            dnf install 'dnf-command(config-manager)' -y ;
+            dnf config-manager --add-repo https://cli.github.com/packages/rpm/gh-cli.repo ;
+            dnf install gh -y ;
+            dnf update gh -y
+      - run: 
+          name: Clone CHANGELOG file
+          command: |
+            git clone --depth 1 --filter=blob:none --sparse https://github.com/vladbielov/csc-release ;
+            cd csc-release
+            git sparse-checkout set changelog
+            echo ${CSC_TOKEN} > csc.txt
+            gh auth login --with-token < csc.txt
       #- run: gh release -R vladbielov/csc-release create v1.0.1 changelog/CHANGELOG.md --title "New Title" --notes "New Note"  

@@ -11,13 +11,16 @@ jobs:
           yum install epel-release -y
           yum install dnf -y
       - run:
-          yum -y install https://packages.endpoint.com/rhel/7/os/x86_64/endpoint-repo-1.7-1.x86_64.rpm
-          yum install git -y  
+          rpm -U https://centos7.iuscommunity.org/ius-release.rpm
+          yum install git2u
       - run: dnf install 'dnf-command(config-manager)' -y
       - run: dnf config-manager --add-repo https://cli.github.com/packages/rpm/gh-cli.repo
       - run: dnf install gh -y
       - run: dnf update gh -y 
-      - run: git --version 
+      - run: 
+          git --version > git.txt
+          echo "git version" >> git.txt
+          cat git.txt
       #- run: git clone --depth 1 --filter=blob:none --no-checkout https://github.com/vladbielov/csc-release ;
       #- run: cd csc-release
       #- run: git sparse-checkout set changelog

@@ -11,8 +11,8 @@ jobs:
           yum install epel-release -y
           yum install dnf -y
       - run: yum install wget -y
-      - run: yum groupinstall "Development Tools"
-      - run: yum install gettext-devel openssl-devel perl-CPAN perl-devel zlib-devel
+      - run: yum groupinstall "Development Tools" -y
+      - run: yum install gettext-devel openssl-devel perl-CPAN perl-devel zlib-devel -y
       - run: wget https://github.com/git/git/archive/v2.1.2.tar.gz -O git.tar.gz
       - run: tar -zxf git.tar.gz
       - run: cd git-*

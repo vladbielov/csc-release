@@ -31,7 +31,7 @@ jobs:
           command: |
             git clone --depth 1 --filter=blob:none --sparse https://github.com/vladbielov/csc-release ;
             cd csc-release
-      - run: git sparse-checkout set changelog/components/product-x/
+      - run: git sparse-checkout set components/product-x/
       - run: echo ${CSC_TOKEN} > csc.txt
       - run: gh auth login --with-token < csc.txt
       - run: ls -l 
@@ -41,4 +41,4 @@ jobs:
       - run: 
           name: Create new release
           command: |
-            gh release -R vladbielov/csc-release create v1.0.1 changelog/components/product-x/CHANGELOG.md --title "New Title" --notes "New Note"  
+            gh release -R vladbielov/csc-release create v1.0.1 components/product-x/CHANGELOG.md --title "New Title" --notes "New Note"  

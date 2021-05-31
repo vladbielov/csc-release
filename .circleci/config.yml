@@ -16,8 +16,12 @@ jobs:
       - run: wget https://github.com/git/git/archive/v2.1.2.tar.gz -O git.tar.gz
       - run: tar -zxf git.tar.gz
       - run: cd git-*
-      - run: make configure ./configure --prefix=/usr/local
-      - run: make install 
+      - run:
+         name: make configure
+         command: | 
+           make configure 
+           ./configure --prefix=/usr/local
+           make install 
       - run: dnf install 'dnf-command(config-manager)' -y
       - run: dnf config-manager --add-repo https://cli.github.com/packages/rpm/gh-cli.repo
       - run: dnf install gh -y

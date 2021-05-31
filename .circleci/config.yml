@@ -35,9 +35,8 @@ jobs:
       - run: echo ${CSC_TOKEN} > csc.txt
       - run: gh auth login --with-token < csc.txt
       - run: ls -l 
-      - run: ls -l changelog/
-      - run: ls -l changelog/components/
-      - run: ls -l changelog/components/product-x/
+      - run: ls -l components/
+      - run: ls -l components/product-x/
       - run: 
           name: Create new release
           command: |
